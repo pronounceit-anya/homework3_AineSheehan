@@ -4,6 +4,7 @@ from openai import OpenAI
 
 from flask import Flask, render_template, request
 
+st.title("Abra Cadabra!")
 # Initialize the app
 app = Flask(__name__)
 
