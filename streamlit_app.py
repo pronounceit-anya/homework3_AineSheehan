@@ -1,6 +1,14 @@
 import streamlit as st
+from transformers import pipeline
 
-st.title("🎈 My new app")
+st.title("Fortune favors the bold!")
+
+generator = pipeline('text-generation', model='gpt2')
+
+prompt = st.text_input("What is your prompt today?", "Damascus is")
+
+output = generator(prompt, max_length=20, num_return_sequences=10, truncation=True)[0]
+
 st.write(
-    "Let's start building! For help and inspiration, head over to [docs.streamlit.io](https://docs.streamlit.io/)."
+    output["generated_text"]
 )
