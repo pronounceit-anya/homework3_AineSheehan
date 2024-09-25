@@ -8,7 +8,8 @@ from flask import Flask, render_template, request
 app = Flask(__name__)
 
 # Set up your OpenAI API key (make sure to replace with your actual API key)
-openai.api_key = 'your-openai-api-key'
+my_secret_key = userdata.get('MyOpenAIKey')
+os.environ["OPENAI_API_KEY"] = my_secret_key
 
 # Define the route for the main page
 @app.route("/", methods=["GET", "POST"])
